@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float forwardSpeed;
-    void Start()
-    {
-        
-    }
+    public float hareketHizi = 10f; // aracın hızı
+    public float donmeHizi = 100f; // aracın dönüş hızı
 
-    // Update is called once per frame
+    private float yatayHareket; // sol-sağ hareket girdisi
+    private float dikeyHareket; // ileri-geri hareket girdisi
+
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            transform.position += new Vector3(x: -1 * forwardSpeed*Time.deltaTime, y: 0, z: 0);
-        }
+        yatayHareket = SimpleInput.GetAxis("Horizontal"); // sol-sağ girdisini al
+        dikeyHareket = SimpleInput.GetAxis("Vertical"); // ileri-geri girdisini al
+
+        // aracı hareket ettir
+        transform.Translate(Vector3.forward * dikeyHareket * hareketHizi * Time.deltaTime);
+        transform.Rotate(Vector3.up * yatayHareket * donmeHizi * Time.deltaTime);
     }
 }
