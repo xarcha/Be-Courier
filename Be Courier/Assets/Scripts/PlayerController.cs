@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float hareketHizi = 10f; // aracın hızı
-    public float donmeHizi = 100f; // aracın dönüş hızı
+    public float hareketHizi = 20f; // aracın hızı
+    public float donmeHizi = 50f; // aracın dönüş hızı
 
     private float yatayHareket; // sol-sağ hareket girdisi
     private float dikeyHareket; // ileri-geri hareket girdisi
